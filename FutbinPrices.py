@@ -23,19 +23,21 @@ def fetch_price():
 
 fetch_price()
 print(current_px, 'Kick off')
-old_px = current_px
+for (name, id) in player_id.items():
+        old_px[name] = current_px[name]
 
 while True:
-    current_time = datetime.datetime.now()
-    fetch_price()
-    if old_px == current_px:
-        print('-'*60)
-        print('\33[0;37;40m No price updates detected')
-        print(current_px, current_time.strftime("%H:%M %Z"))
-    elif old_px != current_px:
-        print('*'*60)
-        print('\33[1;31;40m Price updates detected. Check list closely!!!!!!!!!!!!!')
-        print('*'*60)
-        print(current_px,current_time.strftime("%H:%M %Z"))
-        old_px = current_px
-    time.sleep(10)
+        current_time = datetime.datetime.now()
+        fetch_price()
+        if old_px == current_px:
+                print('-'*60)
+                print('\33[0;37;40m No price updates detected')
+                print(current_px, current_time.strftime("%H:%M %Z"))
+        else:
+                old_px = current_px
+                print('*'*60)
+                print('\33[1;31;40m Price updates detected. Check list closely!!!!!!!!!!!!!')
+                print('*'*60)
+                print(current_px,current_time.strftime("%H:%M %Z"))
+        
+        time.sleep(10)
