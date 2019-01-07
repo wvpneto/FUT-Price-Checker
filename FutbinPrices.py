@@ -38,4 +38,4 @@ while True:
         print('*'*60)
         print(current_px,current_time.strftime("%H:%M %Z"))
         old_px = current_px
-    time.sleep(3)
+    time.sleep(10)
