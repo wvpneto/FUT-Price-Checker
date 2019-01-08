@@ -33,7 +33,7 @@ while True:
                 current_price = current_px[name]
                 if old_price == current_price:
                         print('-'*60)
-                        print('\33[0;37;40m No price updates detected for', name, '=>', current_px, current_time.strftime("%H:%M %Z"))
+                        print('\33[0;37;40m No price updates detected for', name, '=>', current_price, current_time.strftime("%H:%M %Z"))
                 else:
                         old_px[name] = current_px[name]
                         print('*'*60)
