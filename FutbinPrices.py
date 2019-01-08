@@ -29,17 +29,13 @@ while True:
         current_time = datetime.datetime.now()
         fetch_price()
         for (name, id) in player_id.items():
-                player_name = name
                 old_price = old_px[name]
                 current_price = current_px[name]
-                player_changed = False
                 if old_price != current_price:
-                        player_changed = True
-                if not player_changed:
                         print('-'*60)
-                        print('\33[0;37;40m No price updates detected for', playner_name, '=>', current_px, current_time.strftime("%H:%M %Z"))
+                        print('\33[0;37;40m No price updates detected for', name, '=>', current_px, current_time.strftime("%H:%M %Z"))
                 else:
                         old_px[name] = current_px[name]
                         print('*'*60)
-                        print('\33[1;31;40m Price updates detected for', player_name, ' from:', old_price, 'to:', current_price, 'at', current_time.strftime("%H:%M %Z"))
+                        print('\33[1;31;40m Price updates detected for', name, ' from:', old_price, 'to:', current_price, 'at', current_time.strftime("%H:%M %Z"))
         time.sleep(10)
